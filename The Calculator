@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() {
+    char operator;
+    double firstNumber, secondNumber;
+
+    // Display a message to the user
+    printf("Enter an operator (+, -, *, /): ");
+    scanf("%c", &operator);
+
+    // Get user input for two numbers
+    printf("Enter two operands: ");
+    scanf("%lf %lf", &firstNumber, &secondNumber);
+
+    // Perform the operation based on the user input
+    switch (operator) {
+        case '+':
+            printf("%.2lf + %.2lf = %.2lf\n", firstNumber, secondNumber, firstNumber + secondNumber);
+            break;
+        case '-':
+            printf("%.2lf - %.2lf = %.2lf\n", firstNumber, secondNumber, firstNumber - secondNumber);
+            break;
+        case '*':
+            printf("%.2lf * %.2lf = %.2lf\n", firstNumber, secondNumber, firstNumber * secondNumber);
+            break;
+        case '/':
+            // Check for division by zero
+            if (secondNumber != 0.0)
+                printf("%.2lf / %.2lf = %.2lf\n", firstNumber, secondNumber, firstNumber / secondNumber);
+            else
+                printf("Error! Division by zero is not allowed.\n");
+            break;
+        default:
+            // If the operator is not recognized
+            printf("Error! Operator is not correct.\n");
+            break;
+    }
+
+    return 0;
+}
